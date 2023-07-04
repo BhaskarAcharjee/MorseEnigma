@@ -2,13 +2,15 @@
 #include<conio.h>
 #include<string.h>
 #include<process.h>
+#include <ctype.h>
+using namespace std;
 
 int main()
 {
         char str[25],str1[100];
 
         fflush(stdin);
-        printf("Enter any String to Convert into Morse Code (UPPERCASE only) :: ");
+        printf("Enter any String to Convert into Morse Code :: ");
         // gets(str); //The gets() function is unsafe because it does not perform bounds checking, which can lead to buffer overflow vulnerabilities. It is recommended to use fgets() instead.
         fgets(str, sizeof(str), stdin);
         str[strcspn(str, "\n")] = '\0';  // Remove trailing newline if present
@@ -16,7 +18,7 @@ int main()
         int j=0;
         for(int i=0;i<=strlen(str);i++)
         {
-                switch(char(str[i]))
+                switch(toupper(str[i]))
                 {
                   case 'A':
                   str1[j++]='.';
